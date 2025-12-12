@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: mongodb
+  namespace: roboshop
+  labels: #these labels are for deployment
+    project: roboshop
+    component: mongodb
+    tier: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels: #these are used to select pods
+      project: roboshop
+      component: mongodb
+      tier: db
+  template: 
+    metadata:
+      labels:
+        project: roboshop
+        component: mongodb
+        tier: db
+    spec:
+      containers:
+      - name: mongodb
+        image: pravakula/mongodb:v1

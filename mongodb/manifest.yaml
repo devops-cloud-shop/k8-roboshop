@@ -36,3 +36,19 @@ spec:
             port: 8080
           initialDelaySeconds: 15
           periodSeconds: 10
+---
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: roboshop
+spec:
+  selector: 
+    project: roboshop
+    component: mongodb
+    tier: db
+  ports:
+   - protocol: TCP
+     port: 27017
+     targetPort: 27017
+

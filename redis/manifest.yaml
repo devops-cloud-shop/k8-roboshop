@@ -22,8 +22,8 @@ spec:
         tier: db
     spec:
       containers:
-      - name: redis:7.0
-        image: pravakula/redis:v1
+      - name: redis
+        image: redis:7.0
         imagePullPolicy: Always
         readinessProbe:
           tcpSocket:

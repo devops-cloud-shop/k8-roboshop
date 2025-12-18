@@ -24,16 +24,14 @@ spec:
       containers:
       - name: mongodb
         image: pravakula/mongodb:v1
-        ports:
-        - containerPort: 8080
         readinessProbe:
           tcpSocket:
-            port: 8080
+            port: 27017
           initialDelaySeconds: 15
           periodSeconds: 10
         livenessProbe:
           tcpSocket:
-            port: 8080
+            port: 27017
           initialDelaySeconds: 15
           periodSeconds: 10
 ---
